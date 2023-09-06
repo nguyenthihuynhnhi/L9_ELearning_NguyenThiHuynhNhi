@@ -2,7 +2,7 @@
 
 ![L9 Learning](./src//assets/logo/L9_logo_64_64.png)
 
-## Deploy : https://l9-learning-nguyenthihuynhnhi.netlify.app/coursemanagement
+## Deploy : https://l9-learning-nguyenthihuynhnhi.netlify.app/
 
 ## youtube: https://youtu.be/qNBBHd75t_U
 
