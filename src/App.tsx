@@ -33,74 +33,87 @@ import AddCoursePage_Admin from "./pages/Admin/AddCoursePage_Admin/AddCoursePage
 import ApiPage from "./pages/ApiPage/ApiPage";
 
 function App() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const dispatch: DispatchType = useDispatch();
+  const dispatch: DispatchType = useDispatch();
 
-    const [messageApi, contextHolder] = message.useMessage();
+  const [messageApi, contextHolder] = message.useMessage();
 
-    useEffect(() => {
-        const theme = lcStorage.get(THEME);
-        if (theme === "light") dispatch(lightThemeREDU());
-        if (theme === "dark") dispatch(darkThemeREDU());
-    }, []);
+  useEffect(() => {
+    const theme = lcStorage.get(THEME);
+    if (theme === "light") dispatch(lightThemeREDU());
+    if (theme === "dark") dispatch(darkThemeREDU());
+    if (theme === null) dispatch(lightThemeREDU());
+  }, []);
 
-    useEffect(() => {
-        setMessageApi(messageApi);
-    }, [messageApi]);
+  useEffect(() => {
+    setMessageApi(messageApi);
+  }, [messageApi]);
 
-    useEffect(() => {
-        setNavigate(navigate);
-    }, [navigate]);
+  useEffect(() => {
+    setNavigate(navigate);
+  }, [navigate]);
 
-    const { themeSelect } = useSelector((state: RootState) => state.toggleThemeSlice);
+  const { themeSelect } = useSelector(
+    (state: RootState) => state.toggleThemeSlice
+  );
 
-    const themeAlgorithm = themeSelect === "dark" ? theme.darkAlgorithm : undefined;
+  const themeAlgorithm =
+    themeSelect === "dark" ? theme.darkAlgorithm : undefined;
 
-    return (
-        <>
-            <ConfigProvider
-                theme={{
-                    algorithm: themeAlgorithm,
-                }}
-            >
-                <LoadingPage />
-                {contextHolder}
-                <Modal />
-                <Routes>
-                    {/* HOME LAYOUT */}
-                    <Route element={<MainLayout />}>
-                        <Route index element={<HomePage />} />
-                        <Route path="detailcourse/:id" element={<DetailCoursePage />} />
-                        <Route path="courses" element={<CoursesPage />} />
-                        <Route path="roadmap" element={<Roadmap />} />
-                        <Route path="blog" element={<Blog />} />
-                        <Route path="addcourse" element={<AddCoursePage_Admin />} />
-                        <Route path="coursemanagement" element={<CourseManagementPage_Admin />} />
-                        <Route path="editcourse/:id" element={<EditCoursePage_Admin />} />
-                        <Route path="usermanagement" element={<UserManagement_Admin />} />
-                        <Route path="edituser/:id" element={<EditUser_Admin />} />
-                        <Route path="usertocourse/:id" element={<InfoUserToCoursePage_Admin />} />
-                        <Route path="coursetouser/:id" element={<InfoCourseToUserPage_Admin />} />
-                    </Route>
+  return (
+    <>
+      <ConfigProvider
+        theme={{
+          algorithm: themeAlgorithm,
+        }}
+      >
+        <LoadingPage />
+        {contextHolder}
+        <Modal />
+        <Routes>
+          {/* HOME LAYOUT */}
+          <Route element={<MainLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="detailcourse/:id" element={<DetailCoursePage />} />
+            <Route path="courses" element={<CoursesPage />} />
+            <Route path="roadmap" element={<Roadmap />} />
+            <Route path="blog" element={<Blog />} />
+            <Route path="addcourse" element={<AddCoursePage_Admin />} />
+            <Route
+              path="coursemanagement"
+              element={<CourseManagementPage_Admin />}
+            />
+            <Route path="editcourse/:id" element={<EditCoursePage_Admin />} />
+            <Route path="usermanagement" element={<UserManagement_Admin />} />
+            <Route path="edituser/:id" element={<EditUser_Admin />} />
+            <Route
+              path="usertocourse/:id"
+              element={<InfoUserToCoursePage_Admin />}
+            />
+            <Route
+              path="coursetouser/:id"
+              element={<InfoCourseToUserPage_Admin />}
+            />
+          </Route>
 
-                    {/* PROFILE LAYOUT */}
-                    <Route element={<BacsicLayout />}>
-                        <Route path="api" element={<ApiPage />} />
-                        <Route path="profile" element={<ProfilePage />} />
-                        <Route path="settings" element={<SettingsPage />}>
-                            <Route path="personal" element={<Personal />} />
-                            <Route path="security" element={<Security />} />
-                            <Route path="notifications" element={<Notifications />} />
-                        </Route>
-                    </Route>
+          {/* PROFILE LAYOUT */}
+          <Route element={<BacsicLayout />}>
+            <Route path="api" element={<ApiPage />} />
+            <Route path="profile" element={<ProfilePage />} />
+            <Route path="settings" element={<SettingsPage />}>
+              <Route path="personal" element={<Personal />} />
+              <Route path="security" element={<Security />} />
+              <Route path="notifications" element={<Notifications />} />
+            </Route>
+          </Route>
 
-                    {/* OTHER */}
-                    {/* <Route path="*" element={<Navigate to={"/"} />} /> */}
-                </Routes>
-            </ConfigProvider>
-        </>
-    );
+          {/* OTHER */}
+          {/* <Route path="*" element={<Navigate to={"/"} />} /> */}
+        </Routes>
+      </ConfigProvider>
+    </>
+  );
 }
 
 export default App;
