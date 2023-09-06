@@ -1,0 +1,886 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "API L9 Learning - Vũ Lê Bảo Long",
+        "version": "1.0.0"
+    },
+    "tags": [
+        {
+            "name": "Welcome",
+            "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+        }
+    ],
+    "host": "l9-learning.onrender.com",
+    "paths": {
+        "/api/v1/welcome": {
+            "get": {
+                "tags": ["Welcome"],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/CourseManagement/GetListCourses": {
+            "get": {
+                "tags": ["CourseManagement"],
+                "parameters": [
+                    {
+                        "name": "courseName",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/CourseManagement/GetCourseById": {
+            "get": {
+                "tags": ["CourseManagement"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/CourseManagement/GetCourseByCategory": {
+            "get": {
+                "tags": ["CourseManagement"],
+                "parameters": [
+                    {
+                        "name": "courseCategoryCode",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/CourseManagement/GetListCourseCategories": {
+            "get": {
+                "tags": ["CourseManagement"],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/CourseManagement/AddCategory": {
+            "post": {
+                "tags": ["CourseManagement"],
+                "parameters": [
+                    {
+                        "name": "categoryName",
+                        "description": "tên danh mục",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "categoryName": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/CourseManagement/AddCourse": {
+            "post": {
+                "tags": ["CourseManagement"],
+                "operationId": "AddCourse",
+                "consumes": ["multipart/form-data"],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "frm",
+                        "in": "formData",
+                        "required": false,
+                        "type": "array",
+                        "items": {},
+                        "collectionFormat": "multi",
+                        "uniqueItems": false
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/CourseManagement/DeleteCourse": {
+            "delete": {
+                "tags": ["CourseManagement"],
+                "parameters": [
+                    {
+                        "name": "courseCode",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/CourseManagement/UpdateCourse": {
+            "post": {
+                "tags": ["CourseManagement"],
+                "operationId": "UpdateCourse",
+                "consumes": ["multipart/form-data"],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "frm",
+                        "in": "formData",
+                        "required": false,
+                        "type": "array",
+                        "items": {},
+                        "collectionFormat": "multi",
+                        "uniqueItems": false
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/CourseManagement/EnrollCourse": {
+            "post": {
+                "tags": ["CourseManagement"],
+                "parameters": [
+                    {
+                        "name": "EnrollCourse",
+                        "description": "Đăng ký khoá học mới",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "courseCode": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/CourseManagement/CancelEnrollment": {
+            "post": {
+                "tags": ["CourseManagement"],
+                "parameters": [
+                    {
+                        "name": "CancelEnrollment",
+                        "description": "Huỷ đăng ký khoá học ",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "courseCode": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/CourseManagement/GetUserInformationForCourse": {
+            "get": {
+                "tags": ["CourseManagement"],
+                "parameters": [
+                    {
+                        "name": "courseId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/CourseManagement/EnrollUserForCourse": {
+            "post": {
+                "tags": ["CourseManagement"],
+                "parameters": [
+                    {
+                        "name": "EnrollUserForCourse",
+                        "description": "EnrollUserForCourse",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "userId": {
+                                    "type": "string"
+                                },
+                                "courseId": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/CourseManagement/CancelUserEnrollmentForCourse": {
+            "post": {
+                "tags": ["CourseManagement"],
+                "parameters": [
+                    {
+                        "name": "CancelUserEnrollmentForCourse",
+                        "description": "CancelUserEnrollmentForCourse",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "userId": {
+                                    "type": "string"
+                                },
+                                "courseId": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/UserManagement/Register": {
+            "post": {
+                "tags": ["UserManagement"],
+                "parameters": [
+                    {
+                        "name": "Register",
+                        "description": "Register",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "username": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "phoneNumber": {
+                                    "type": "string"
+                                },
+                                "fullName": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/UserManagement/Login": {
+            "post": {
+                "tags": ["UserManagement"],
+                "parameters": [
+                    {
+                        "name": "Login",
+                        "description": "Login",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "username": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/UserManagement/GetAccountInfo": {
+            "get": {
+                "tags": ["UserManagement"],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/UserManagement/CapNhatThongTinTaiKhoan": {
+            "put": {
+                "tags": ["UserManagement"],
+                "parameters": [
+                    {
+                        "name": "CapNhatThongTinNguoiDung",
+                        "in": "body",
+                        "required": true,
+                        "properties": {
+                            "fullName": {
+                                "type": "string"
+                            },
+                            "email": {
+                                "type": "string",
+                                "format": "email"
+                            },
+                            "username": {
+                                "type": "string"
+                            },
+                            "phoneNumber": {
+                                "type": "string"
+                            },
+                            "userType": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/UserManagement/UpdateOneAccountInfo": {
+            "patch": {
+                "tags": ["UserManagement"],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/UserManagement/UpdatePassword": {
+            "patch": {
+                "tags": ["UserManagement"],
+                "parameters": [
+                    {
+                        "name": "UpdatePassword",
+                        "description": "UpdatePassword",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "currentPassword": {
+                                    "type": "string"
+                                },
+                                "newPassword": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/UserManagement/UpdateAccountAvatar": {
+            "patch": {
+                "tags": ["UserManagement"],
+                "operationId": "UpdateAccountAvatar",
+                "consumes": ["multipart/form-data"],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "frm",
+                        "in": "formData",
+                        "required": false,
+                        "type": "array",
+                        "items": {},
+                        "collectionFormat": "multi",
+                        "uniqueItems": false
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/UserManagement/GetListUsers": {
+            "get": {
+                "tags": ["UserManagement"],
+                "parameters": [
+                    {
+                        "name": "tenNguoiDung",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/UserManagement/GetUserInfo": {
+            "get": {
+                "tags": ["UserManagement"],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "required": true,
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/UserManagement/UpdateOneUserInfo": {
+            "patch": {
+                "tags": ["UserManagement"],
+                "parameters": [
+                    {
+                        "name": "DanhSachVe",
+                        "description": "value: email, fullName, userType, phoneNumber, username",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "value": {
+                                    "type": "string"
+                                },
+                                "userId": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/UserManagement/DeleteUser": {
+            "delete": {
+                "tags": ["UserManagement"],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/UserManagement/UpdateUserAvatar": {
+            "patch": {
+                "tags": ["UserManagement"],
+                "operationId": "UserManagement",
+                "consumes": ["multipart/form-data"],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "frm",
+                        "in": "formData",
+                        "required": false,
+                        "type": "array",
+                        "items": {},
+                        "collectionFormat": "multi",
+                        "uniqueItems": false
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/UserManagement/GetCoursesInfoForUsser": {
+            "get": {
+                "tags": ["UserManagement"],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/UserManagement/EnrollCourseForUser": {
+            "post": {
+                "tags": ["UserManagement"],
+                "parameters": [
+                    {
+                        "name": "EnrollCourseForUser",
+                        "description": "EnrollCourseForUser",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "userId": {
+                                    "type": "string"
+                                },
+                                "courseId": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        },
+        "/api/v1/UserManagement/CancelCourseEnrollmentForUser": {
+            "post": {
+                "tags": ["UserManagement"],
+                "parameters": [
+                    {
+                        "name": "CancelCourseEnrollmentForUser",
+                        "description": "CancelCourseEnrollmentForUser",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "userId": {
+                                    "type": "string"
+                                },
+                                "courseId": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+                    }
+                }
+            }
+        }
+    }
+}

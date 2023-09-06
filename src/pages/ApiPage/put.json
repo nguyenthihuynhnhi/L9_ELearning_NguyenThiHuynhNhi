@@ -1,0 +1,44 @@
+{
+    "put": {
+        "tags": ["UserManagement"],
+        "parameters": [
+            {
+                "name": "CapNhatThongTinNguoiDung",
+                "in": "body",
+                "required": true,
+                "properties": {
+                    "fullName": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email"
+                    },
+                    "username": {
+                        "type": "string"
+                    },
+                    "phoneNumber": {
+                        "type": "string"
+                    },
+                    "userType": {
+                        "type": "string"
+                    }
+                }
+            },
+            {
+                "name": "Authorization",
+                "in": "header",
+                "description": "Bearer token",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            }
+        ],
+        "responses": {
+            "200": {
+                "description": "The server might take some time to restart after a period of inactivity. \nMáy chủ có thể mất một chút thời gian để khởi động lại sau một thời gian không hoạt động"
+            }
+        }
+    }
+}
